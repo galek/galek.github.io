@@ -71,17 +71,17 @@ p.lead {
   margin-right: 0;
 }
 
-.social-icons a:hover {
-  background-color: #BD5D38;
-}
+    .social-icons a:hover {
+        background-color: #2525a5;
+    }
 
 .dev-icons {
   font-size: 3rem;
 }
 
-.dev-icons .list-inline-item i:hover {
-  color: #BD5D38;
-}
+    .dev-icons .list-inline-item i:hover {
+        color: #2525a5;
+    }
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
@@ -176,7 +176,7 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #BD5D38 !important;
+    background-color: #2525a5 !important;
 }
 
 .text-primary {
