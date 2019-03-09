@@ -16,6 +16,19 @@
     <link href="css/resume.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
+    <script src="js/jquery.js"></script>
+
+
+    <style type="text/css">
+        .asText {
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-block d-lg-none">Nikolay Galko</span>
@@ -202,6 +215,132 @@
                             <h4 class="mb-5">OpenSource and personal projects</h4>
                             <br />
 
+                            <h3 class="mb-0"><a href="bitbucket.org/ngtech_repos/ngtech">NGTech Game Engine (In Active Develop) </a></h3>
+                            <p>
+                                <b>Technology:</b>
+                                OpenGL,OpenGL ES 3.1, OpenAL, RapidJSON, MyGUI, Scaleform, NVAPI, AMDAPI, Winforms, DevExpress, PhysX 4.0, DoxyGen,
+                                Compute shaders, CMake, GLFW, 3DSmax
+                            </p>
+                            <p><b>Languages:</b> C++, Lua, GLSL, C++/CLI, C#</p>
+                            <p>
+                                <b>Roles:</b>
+                                Develop second own game engine.
+                            <p><b>Features:</b></p>
+
+
+                            <button id="morebtn2" class="asText"
+                                    onclick="_showMore(morebtn2, more2)">
+                                Read more
+                            </button>
+                            <span id="more2">
+                                <p>1) Hybrid renderer: Deferred Shading, Forward+ rendering</p>
+                                <p>2) SSAO, SSDO</p>
+                                <p>3) Physic based rendering</p>
+                                <p>4) Frustum Culling</p>
+                                <p>5) Hardware Occlusion Culling</p>
+                                <p>6) OpenGL 4/OpenGL ES 3.1 Render</p>
+                                <p>7) Version layer for older devices(emulation). (from opengl 4.5 to 3.3)</p>
+                                <p>8) Parallax Occlusion Mapping</p>
+                                <p>9) Steep Parallax Mapping</p>
+                                <p>10) Parallax Mapping</p>
+                                <p>11) FXAA</p>
+                                <p>12) Virtual File System.</p>
+                                <p>13) Profiler support (in web browser or brofiler).</p>
+                                <p>14) BreakPad for minidump generation.</p>
+
+
+                                <p>15) Serialization/Deserialization in JSON</p>
+                                <p>16) Level, Physics, Material (node based) Editors</p>
+                                <p>
+                                    17) Automatization of build: own project building system using CMake (Building by one button) from editor.
+                                    with packaging(with running compilers), automatic generation of documentation.
+                                </p>
+                                <p>18) Android, MacosX, Linux support for Runtime</p>
+                                <p>19) CMake support and generation</p>
+                                <p>20) Lua/C++ for game scripting with caching</p>
+
+
+                                <p>21) Audio presets: Background sounds, 3D sounds</p>
+                                <p>22) myGUI and scaleform implementation</p>
+                                <p>23) Rigid body, character controller, joints, physics materials, physics serialization.</p>
+                                <p>24) Own Serialization system for editor.</p>
+                                <p>25) Own Reflection System for editor.</p>
+                                <p>26) CMake as secondary build system.</p>
+                                <p>27) Animation system (per-vertex).</p>
+                                <p>28) Own mesh format + 3dsmax exporters.</p>
+                                <p>29) Own window system (GLFW for PC Runtime, and own on Android runtime. Partially replaced on SDL).</p>
+                                <p>30) Own math library: Vec2, Vec3, Vec4, Mat3, Mat4, Quat.</p>
+                                </p>
+
+                                <p>
+                                    <b>
+                                        Olders Screens - many deprecated (Lights, Physics bodies, Parallax, profiler, level editor and etc):
+                                    </b>
+                                </p>
+                                <p style="color:#ff0000"> Programmers art </p>
+                                <a href="https://images.gameru.net/image/direct/3d6cd22237.png"><img src="https://images.gameru.net/thumb/3d6cd22237.png" /></a>
+                                <a href="https://images.gameru.net/image/direct/354586d5b5.png"><img src="https://images.gameru.net/thumb/354586d5b5.png"></a>
+                                <a href="https://images.gameru.net/image/direct/823c410d0b.png"><img src="https://images.gameru.net/thumb/823c410d0b.png"></a>
+                                <a href="https://images.gameru.net/image/9689bd517a.png.html"><img src="https://images.gameru.net/thumb/9689bd517a.png"></a>
+                                <a href="https://pp.userapi.com/c637421/v637421287/28d4/hdTCiXdqvME.jpg"><img src="https://images.gameru.net/thumb/242dda5bfb1569f.jpg"></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100">
+                    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="resume-content">
+
+                            <h3 class="mb-0">Vega Game Engine  (Finished. Closed source)</h3>
+                            <p>
+                                <b>Technology:</b>
+                                Ogre3D, DX9-11, OpenGL, WxWidgets, PhysX 2.8.x -> Havok Physics, RapidXML, MyGUI,
+                                OpenAL, STL, FFMPEG, Boost Threads->TBB, DoxyGen
+                            </p>
+                            <p><b>Languages:</b> C++, Lua, GLSL, HLSL, XML</p>
+                            <p>
+                                <b>Roles:</b>
+                                Develop first own game engine as learn C++, principes and game architectures.
+                            <p><b>Features:</b></p>
+
+                            <button id="morebtn1" class="asText"
+                                    onclick="_showMore(morebtn1, more1)">
+                                Read more
+                            </button>
+                            <span id="more1">
+                                <p>1) Day-night cycle</p>
+                                <p>2) Water simulation</p>
+                                <p>3) Hybrid renderer: Deferred Shading, Forward rendering, Deferred Lighting, Inferred Lighting support</p>
+                                <p>4) SSAO, SSGI and VPL support</p>
+                                <p>5) Level Editor</p>
+                                <p>6) Script Editor with debugger</p>
+                                <p>7) Serialization/Deserialization in XML</p>
+                                <p>8) Multithreaded decoder of video</p>
+                                <p>9) Audio presets: Background sounds, 3D sounds</p>
+                                <p>10) Full myGUI implementation</p>
+                                <p>11) Rigid body, character controller. Physics Animation (Havok)</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100">
+                    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="resume-content">
+
+                            <h3 class="mb-0"><a href="https://github.com/galek/ngtechShaderEditor"> NGTech Shader editor (Finished) </a></h3>
+                            <p><b>Technology:</b> WinForms, DevExpress, JSON </p>
+                            <p><b>Languages:</b> C# </p>
+                            <p>
+                                <b>Roles:</b>
+                                Example of node based shader editor developed as student project.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-100">
+                    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="resume-content">
                             <h3 class="mb-0"><a href="https://github.com/OpenXRay">OpenXRay</a></h3>
                             <p><b>Technology:</b> X-Ray Engine. OpenGL</p>
                             <p><b>Languages:</b> C++, GLSL, Lua</p>
@@ -254,122 +393,8 @@
                     </div>
                 </div>
 
-                <div class="w-100">
-                    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="resume-content">
-
-                            <h3 class="mb-0"><a href="https://github.com/galek/ngtechShaderEditor"> NGTech Shader editor (Finished) </a></h3>
-                            <p><b>Technology:</b> WinForms, DevExpress, JSON </p>
-                            <p><b>Languages:</b> C# </p>
-                            <p>
-                                <b>Roles:</b>
-                               Example of node based shader editor developed as student project.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-100">
-                    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="resume-content">
-
-                            <h3 class="mb-0">Vega Game Engine  (Finished. Closed source)</h3>
-                            <p>
-                                <b>Technology:</b>
-                                Ogre3D, DX9-11, OpenGL, WxWidgets, PhysX 2.8.x -> Havok Physics, RapidXML, MyGUI,
-                                OpenAL, STL, FFMPEG, Boost Threads->TBB, DoxyGen
-                            </p>
-                            <p><b>Languages:</b> C++, Lua, GLSL, HLSL, XML</p>
-                            <p>
-                                <b>Roles:</b>
-                                Develop first own game engine as learn C++, principes and game architectures.
-                            <p><b>Features:</b></p>
-                            <p>1) Day-night cycle</p>
-                            <p>2) Water simulation</p>
-                            <p>3) Hybrid renderer: Deferred Shading, Forward rendering, Deferred Lighting, Inferred Lighting support</p>
-                            <p>4) SSAO, SSGI and VPL support</p>
-                            <p>5) Level Editor</p>
-                            <p>6) Script Editor with debugger</p>
-                            <p>7) Serialization/Deserialization in XML</p>
-                            <p>8) Multithreaded decoder of video</p>
-                            <p>9) Audio presets: Background sounds, 3D sounds</p>
-                            <p>10) Full myGUI implementation</p>
-                            <p>11) Rigid body, character controller. Physics Animation (Havok)</p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
 
-
-                <div class="w-100">
-                    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="resume-content">
-
-                            <h3 class="mb-0"><a href="bitbucket.org/ngtech_repos/ngtech">NGTech Game Engine (In Develop) </a></h3>
-                            <p>
-                                <b>Technology:</b>
-                                OpenGL,OpenGL ES 3.1, OpenAL, RapidJSON, MyGUI, Scaleform, NVAPI, AMDAPI, Winforms, DevExpress, PhysX 4.0, DoxyGen,
-                                Compute shaders, CMake, GLFW, 3DSmax
-                            </p>
-                            <p><b>Languages:</b> C++, Lua, GLSL, C++/CLI, C#</p>
-                            <p>
-                                <b>Roles:</b>
-                                Develop second own game engine.
-                            <p><b>Features:</b></p>
-                            <p>1) Hybrid renderer: Deferred Shading, Forward+ rendering</p>
-                            <p>2) SSAO, SSDO</p>
-                            <p>3) Physic based rendering</p>
-                            <p>4) Frustum Culling</p>
-                            <p>5) Hardware Occlusion Culling</p>
-                            <p>6) OpenGL 4/OpenGL ES 3.1 Render</p>
-                            <p>7) Version layer for older devices(emulation). (from opengl 4.5 to 3.3)</p>
-                            <p>8) Parallax Occlusion Mapping</p>
-                            <p>9) Steep Parallax Mapping</p>
-                            <p>10) Parallax Mapping</p>
-                            <p>11) FXAA</p>
-                            <p>12) Virtual File System.</p>
-                            <p>13) Profiler support (in web browser or brofiler).</p>
-                            <p>14) BreakPad for minidump generation.</p>
-
-
-                            <p>15) Serialization/Deserialization in JSON</p>
-                            <p>16) Level, Physics, Material (node based) Editors</p>
-                            <p>
-                                17) Automatization of build: own project building system using CMake (Building by one button) from editor.
-                                with packaging(with running compilers), automatic generation of documentation.
-                            </p>
-                            <p>18) Android, MacosX, Linux support for Runtime</p>
-                            <p>19) CMake support and generation</p>
-                            <p>20) Lua/C++ for game scripting with caching</p>
-
-
-                            <p>21) Audio presets: Background sounds, 3D sounds</p>
-                            <p>22) myGUI and scaleform implementation</p>
-                            <p>23) Rigid body, character controller, joints.</p>
-                            <p>24) Own Serialization.</p>
-                            <p>25) Own Reflection System for editor.</p>
-                            <p>26) CMake as secondary build system.</p>
-                            <p>27) Animation system (per-vertex).</p>
-                            <p>28) Own mesh format + 3dsmax exporters.</p>
-                            <p>29) Own window system (GLFW for PC Runtime, and own on Android runtime. Partially replaced on SDL).</p>
-                            <p>30) Own math library: Vec2, Vec3, Vec4, Mat3, Mat4, Quat.</p>
-                            </p>
-
-                            <p>
-                                <b>
-                                    Olders Screens - many deprecated (Lights, Physics bodies, Parallax, profiler, level editor and etc):
-                                </b>
-                            </p>
-                            <p style="color:#ff0000"> Programmers art </p>
-                            <a href="https://images.gameru.net/image/direct/3d6cd22237.png"><img src="https://images.gameru.net/thumb/3d6cd22237.png" /></a>
-                            <a href="https://images.gameru.net/image/direct/354586d5b5.png"><img src="https://images.gameru.net/thumb/354586d5b5.png"></a>
-                            <a href="https://images.gameru.net/image/direct/823c410d0b.png"><img src="https://images.gameru.net/thumb/823c410d0b.png"></a>
-                            <a href="https://images.gameru.net/image/9689bd517a.png.html"><img src="https://images.gameru.net/thumb/9689bd517a.png"></a>
-                            <a href="https://pp.userapi.com/c637421/v637421287/28d4/hdTCiXdqvME.jpg"><img src="https://images.gameru.net/thumb/242dda5bfb1569f.jpg"></a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!--Frelance and personal projects. End-->
 
@@ -475,5 +500,26 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
+
+
+    <script>
+        function _showMore(_idMore, _idText) {
+            if (_idText.style.display === "none") {
+                $(_idText).show();
+                $(_idMore).text("Read less");
+            } else {
+                $(_idText).hide();
+                $(_idMore).text("Read more");
+            }
+        }
+
+        function _init() {
+            $('#more1').hide();
+            $('#more2').hide();
+        }
+
+        _init();
+
+    </script>
 </body>
 </html>
