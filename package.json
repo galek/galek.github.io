@@ -1,11 +1,11 @@
 {
-    "title": "Resume",
-    "name": "startbootstrap-resume",
+    "title": "Nick Galko CV",
+    "name": "galek-cv",
     "version": "5.0.4",
     "scripts": {
         "start": "gulp watch"
     },
-    "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
+    "description": "Nick Galko CV",
     "keywords": [
         "css",
         "sass",
@@ -13,16 +13,6 @@
         "responsive",
         "theme",
         "template"
-    ],
-    "homepage": "https://startbootstrap.com/template-overviews/resume",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume/issues",
-        "email": "feedback@startbootstrap.com"
-    },
-    "license": "MIT",
-    "author": "Start Bootstrap",
-    "contributors": [
-        "David Miller (http://davidmiller.io/)"
     ],
     "repository": {
         "type": "git",
