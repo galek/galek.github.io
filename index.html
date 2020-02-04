@@ -493,8 +493,21 @@
     }
     _init();
   </script>
-  <script src="serviceWorker2/pwabuilder-sw.js"></script>
-  <script src="serviceWorker2/pwabuilder-sw-register.js"></script>
+
+  <script>
+  if (‘serviceWorker’ in navigator) {
+ window.addEventListener(‘load’, function() {  
+   navigator.serviceWorker.register(‘/sw.js’).then(
+     function(registration) {
+       // Registration was successful
+       alert(‘ServiceWorker registration successful with scope: ‘, registration.scope); },
+     function(err) {
+       // registration failed :(
+      alert(‘ServiceWorker registration failed: ‘, JSON.stringify(err);
+     });
+ });
+}
+  </script>
 </body>
 
 </html>
