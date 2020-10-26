@@ -10,7 +10,8 @@ section.resume-section {
     }
 }
 
-@media (min-width: 260px) {
+// value <= 280px
+@media screen and (max-width: 280px)  {
     h1 {
         font-size: 1.3rem;
     }
@@ -20,13 +21,13 @@ section.resume-section {
     }
 }
 
-@media (min-width: 320px) {
+@media screen and (min-width: 320px) {
         h1 {
             font-size: 2.5rem;
         }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     section.resume-section {
         min-height: 100vh;
         .resume-item {
@@ -38,13 +39,27 @@ section.resume-section {
         h1 {
             font-size: 6rem;
         }
+        .subheading
+        {   
+            font-size: 2.0rem;
+        }
 }
 
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
     section.resume-section {
         padding-top: 3rem !important;
         padding-bottom: 3rem !important;
     }
+        h1 {
+            font-size: 4rem;
+        }
+        .subheading
+        {   
+            font-size: 2.0rem;
+        }
+}
+
+@media screen and (min-width: 1100px) {
         h1 {
             font-size: 6rem;
         }
