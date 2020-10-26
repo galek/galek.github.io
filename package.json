@@ -3,7 +3,7 @@
     "name": "galek-cv",
     "version": "5.0.4",
     "scripts": {
-        "dev": "gulp watch",
+        "start:dev": "gulp watch",
         "build": "gulp",
         "clean": "rimraf docs rimraf package-lock.json"
     },
@@ -25,7 +25,7 @@
         "@fortawesome/fontawesome-free": "5.7.2",
         "bootstrap": "4.3.1",
         "devicon": "2.2.0",
-        "jquery": "3.5.0",
+        "jquery": "3.4.0",
         "jquery.easing": "1.4.1"
     },
     "devDependencies": {
