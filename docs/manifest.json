@@ -1,7 +1,7 @@
 {
-    "name": "Web Community Leaders UK IE",
-    "short_name": "Web Leaders",
-    "description": "Web Community Leaders landing page",
+    "name": "Nick Galko CV",
+    "short_name": "Nick Galko CV",
+    "description": "Nick Galko CV Site",
     "lang": "en-GB",
     "start_url": "/portfolio/",
     "display": "minimal-ui",
