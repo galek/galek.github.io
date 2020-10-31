@@ -3,7 +3,7 @@
     "short_name": "Web Leaders",
     "description": "Web Community Leaders landing page",
     "lang": "en-GB",
-    "start_url": "/",
+    "start_url": "/portfolio/",
     "display": "minimal-ui",
     "theme_color": "#E6E6FA",
     "background_color": "#E6E6FA",
