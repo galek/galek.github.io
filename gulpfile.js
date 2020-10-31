@@ -28,25 +28,30 @@ const banner = ['/*!\n',
 
 // BrowserSync
 function browserSync(cb) {
-    browsersync.init({
-        server: {
-            baseDir: "./docs"
-        },
-        port: 3000
-    });
+
+    if (browsersync)
+        browsersync.init({
+            server: {
+                baseDir: "./docs"
+            },
+            port: 3000
+        });
 
     cb();
 }
 
 // BrowserSync reload
 function browserSyncReload(cb) {
-    browsersync.reload();
+
+    if (browsersync)
+        browsersync.reload();
 
     cb();
 }
 
 // Clean dist
 function clean(cb) {
+
     del.sync(["./docs/"]);
 
     cb();
@@ -69,28 +74,28 @@ function modules(cb) {
 
     // jQuery
     const jquery = gulp.src([
-        './node_modules/jquery/dist/*',
-        '!./node_modules/jquery/dist/core.js'
-    ])
+            './node_modules/jquery/dist/*',
+            '!./node_modules/jquery/dist/core.js'
+        ])
         .pipe(gulp.dest('./docs/vendor/jquery'));
 
     // devicon
     const devicon = gulp.src([
-        './node_modules/devicon/**/**/*.svg',
-        './node_modules/devicon/**/**/*.eps',
-        './node_modules/devicon/**/**/*.eot',
-        './node_modules/devicon/**/**/*.ttf',
-        './node_modules/devicon/**/**/*.woff',
-        './node_modules/devicon/**/**/*.css',
+            './node_modules/devicon/**/**/*.svg',
+            './node_modules/devicon/**/**/*.eps',
+            './node_modules/devicon/**/**/*.eot',
+            './node_modules/devicon/**/**/*.ttf',
+            './node_modules/devicon/**/**/*.woff',
+            './node_modules/devicon/**/**/*.css',
 
-        '!./node_modules/devicon/devicon.css',
-        '!./node_modules/devicon/devicon-colors.css',
-        '!./node_modules/devicon/*.json',
-        '!./node_modules/devicon/*.md',
-        '!./node_modules/devicon/index.html',
-        '!./node_modules/devicon/gulpfile.js',
-        '!./node_modules/devicon/LICENSE',
-    ])
+            '!./node_modules/devicon/devicon.css',
+            '!./node_modules/devicon/devicon-colors.css',
+            '!./node_modules/devicon/*.json',
+            '!./node_modules/devicon/*.md',
+            '!./node_modules/devicon/index.html',
+            '!./node_modules/devicon/gulpfile.js',
+            '!./node_modules/devicon/LICENSE',
+        ])
         .pipe(gulp.dest('./docs/vendor/devicon'));
 
     // Nick not call it - because we will get incorrect result
@@ -100,8 +105,9 @@ function modules(cb) {
 }
 
 function postClean(cb) {
-    del.sync(["./docs/vendor/devicon/devicon.git"]);
 
+    del.sync(["./docs/vendor/devicon/devicon.git"]);
+    del.sync(["./docs/css/resume.min.css"]);
 
     cb();
 }
@@ -127,6 +133,7 @@ function staticHtml(cb) {
 
 // CSS task
 function css(cb) {
+
     gulp
         .src("./scss/**/*.scss")
         .pipe(plumber())
@@ -152,6 +159,7 @@ function css(cb) {
 
 // JS task
 function js(cb) {
+
     gulp
         .src([
             './js/*.js',
@@ -166,11 +174,33 @@ function js(cb) {
         }))
         .pipe(gulp.dest('./docs/js'))
         .pipe(browsersync.stream());
+
+    cb()
+}
+
+function PWAFiles(cb) {
+    gulp
+        .src([
+            './sw.js',
+            './sw-toolbox.js'
+        ])
+        .pipe(uglify())
+        .pipe(gulp.dest('./docs/'))
+        .pipe(browsersync.stream());
+
+    gulp
+        .src([
+            './manifest.json'
+        ])
+        .pipe(gulp.dest('./docs/'))
+        .pipe(browsersync.stream());
+
     cb()
 }
 
 // Watch files
 function watchFiles() {
+
     gulp.watch("./scss/**/*", css);
     gulp.watch("./js/**/*", js);
     gulp.watch("./**/*.html", browserSyncReload);
@@ -178,7 +208,7 @@ function watchFiles() {
 
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
-const build = gulp.series(gulp.series(vendor, gulp.parallel(css, js, images, staticHtml)), postClean);
+const build = gulp.series(gulp.series(vendor, gulp.parallel(css, js, images, staticHtml, PWAFiles)), postClean);
 const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 exports.default = build;
