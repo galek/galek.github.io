@@ -4,3 +4,6 @@ js/dist/*
 vendor/*
 .idea/*
 .vs/*
+.idea
+.vs
+.suo
