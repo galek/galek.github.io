@@ -120,6 +120,9 @@ function images(cb) {
     const Task2 = gulp.src('./favicon.ico')
         .pipe(gulp.dest('./docs'));
 
+    const Task3 = gulp.src('./icons/*')
+        .pipe(gulp.dest('./docs/icons'));
+
     cb()
 }
 
