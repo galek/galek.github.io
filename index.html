@@ -3,13 +3,12 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="manifest" href="/portfolio/manifest.json">
+    <link rel="manifest" href="manifest.json">
 
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                // TODO: Replace on path
-                navigator.serviceWorker.register('/portfolio/sw.js').then(
+                navigator.serviceWorker.register('sw.js').then(
                     function(registration) {
                         // Registration was successful
                         console.log('ServiceWorker registration successful with scope: ', registration.scope);
