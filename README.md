@@ -9,7 +9,7 @@ Is site based in 2017 on template "Start Bootstrap" by "David Miller (http://dav
 #### SonarQube:
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=galek_portfolio&metric=alert_status)](https://sonarcloud.io/dashboard?id=galek_portfolio)
 ### CircleCI
-[![<CircleCI>](https://circleci.com/gh/galek/portfolio.svg?style=svg)](<LINK>)
+[![<CircleCI>](https://circleci.com/gh/galek/portfolio.svg?style=svg)](https://app.circleci.com/pipelines/github/galek/portfolio)
 
 # TODO
 2) Backend
