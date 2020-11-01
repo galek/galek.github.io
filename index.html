@@ -564,12 +564,9 @@
     <!-- Custom scripts for this template -->
     <script src="js/bundle.min.js"></script>
     <script>
-        if (!$) {
-            console.warn('JQuery is not found');
-            return;
-        }
-
         function _showMore(_idMore, _idText) {
+            if (!$) return;
+
             if (_idText.style.display === "none") {
                 $(_idText).show();
                 $(_idMore).text("Read less");
@@ -580,6 +577,10 @@
         }
 
         function _init() {
+            if (!$) {
+                console.warn('JQuery is not found');
+                return;
+            }
             $('#more1').hide();
             $('#more2').hide();
         }
