@@ -565,7 +565,7 @@
     <script src="js/bundle.min.js"></script>
     <script>
         function _showMore(_idMore, _idText) {
-            if (!$) return;
+            if (!window.jQuery) return;
 
             if (_idText.style.display === "none") {
                 $(_idText).show();
@@ -576,8 +576,8 @@
             }
         }
 
-        function _init() {
-            if (!$) {
+        function _init(jquery) {
+            if (!window.jQuery) {
                 console.warn('JQuery is not found');
                 return;
             }
