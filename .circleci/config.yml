@@ -15,9 +15,12 @@ jobs:
           command: 'sudo npm install -g npm@latest'
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
+     # - run:
+     #     name: clean project
+     #     command: npm run clean
       - run:
-          name: clean project
-          command: npm run clean
+          name: ls of project
+          command: ls
       - run:
           name: install-dependencies
           command: npm install
