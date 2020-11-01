@@ -1,6 +1,7 @@
 # Portfolio
 
-
+# Metrics
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=galek_portfolio&metric=alert_status)](https://sonarcloud.io/dashboard?id=galek_portfolio)
 
 # TODO
 2) Backend
