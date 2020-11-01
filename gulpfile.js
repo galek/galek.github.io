@@ -211,7 +211,7 @@ function js(cb) {
     const polyfills = all
         .pipe(autoPolyFiller('polyfills.js', { browsers: pkg.browserslist }));
 
-    const result = merge(polyfills, all)
+    merge(polyfills, all)
         // Order files. NB! polyfills MUST be first
         .pipe(order([
             'polyfills.js',
