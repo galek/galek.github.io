@@ -76,11 +76,11 @@ function clean(cb) {
 function modules(cb) {
 
     // Bootstrap
-    const bootstrap = gulp.src(['./node_modules/bootstrap/dist/**/*.min.*', '!./node_modules/bootstrap/dist/**/*.map'])
+    gulp.src(['./node_modules/bootstrap/dist/**/*.min.*', '!./node_modules/bootstrap/dist/**/*.map'])
         .pipe(gulp.dest('./docs/vendor/bootstrap'));
 
     // Font Awesome
-    const fontAwesome = gulp.src(['./node_modules/@fortawesome/**/*.min.*',
+    gulp.src(['./node_modules/@fortawesome/**/*.min.*',
             './node_modules/@fortawesome/**/*.svg',
             './node_modules/@fortawesome/**/*.eot',
             './node_modules/@fortawesome/**/*.eps',
@@ -96,11 +96,11 @@ function modules(cb) {
         .pipe(gulp.dest('./docs/vendor'));
 
     // jQuery Easing
-    const jqueryEasing = gulp.src('./node_modules/jquery.easing/*.min.*')
+    gulp.src('./node_modules/jquery.easing/*.min.*')
         .pipe(gulp.dest('./docs/vendor/jquery-easing'));
 
     // jQuery
-    const jquery = gulp.src([
+    gulp.src([
             './node_modules/jquery/dist/*.min.*',
             '!./node_modules/jquery/dist/*.map',
             '!./node_modules/jquery/dist/core.js'
@@ -108,7 +108,7 @@ function modules(cb) {
         .pipe(gulp.dest('./docs/vendor/jquery'));
 
     // devicon
-    const devicon = gulp.src([
+    gulp.src([
             './node_modules/devicon/**/**/*.svg',
             './node_modules/devicon/**/**/*.eps',
             './node_modules/devicon/**/**/*.eot',
@@ -143,13 +143,13 @@ function postClean(cb) {
 
 function images(cb) {
 
-    const Task1 = gulp.src('./img/**/*')
+    gulp.src('./img/**/*')
         .pipe(gulp.dest('./docs/img'));
 
-    const Task2 = gulp.src('./favicon.ico')
+    gulp.src('./favicon.ico')
         .pipe(gulp.dest('./docs'));
 
-    const Task3 = gulp.src('./icons/*')
+    gulp.src('./icons/*')
         .pipe(gulp.dest('./docs/icons'));
 
     cb()
@@ -157,7 +157,7 @@ function images(cb) {
 
 function staticHtml(cb) {
 
-    const indexHtml = gulp.src('./index.html')
+    gulp.src('./index.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(useref())
         .pipe(htmlHint())
@@ -232,6 +232,7 @@ function js(cb) {
 }
 
 function PWAFiles(cb) {
+
     gulp
         .src([
             './sw.js',
@@ -248,7 +249,7 @@ function PWAFiles(cb) {
         .pipe(gulp.dest('./docs/'))
         .pipe(browsersync.stream());
 
-    cb()
+    cb();
 }
 
 // Watch files
