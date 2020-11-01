@@ -8,7 +8,7 @@
     "scripts": {
         "start:dev": "gulp watch",
         "build": "gulp",
-        "clean": "rimraf docs rimraf package-lock.json"
+        "clean": "rimraf docs rimraf package-lock.json rimraf BuildTmp"
     },
     "browserslist": [
         "> 1%",
@@ -28,7 +28,6 @@
         "@fortawesome/fontawesome-free": "5.7.2",
         "bootstrap": "4.3.1",
         "devicon": "2.2.0",
-        "gulp-htmlmin": "^5.0.1",
         "jquery": "3.5.1",
         "jquery.easing": "1.4.1"
     },
@@ -36,21 +35,22 @@
         "browser-sync": "2.26.3",
         "del": "3.0.0",
         "gulp": "4.0.0",
-        "gulp-autopolyfiller": "^1.2.1",
+        "gulp-autopolyfiller": "1.2.1",
+        "gulp-htmlmin": "5.0.1",
         "gulp-autoprefixer": "6.0.0",
         "gulp-clean-css": "4.0.0",
-        "gulp-fixmyjs": "^1.0.2",
+        "gulp-fixmyjs": "1.0.2",
         "gulp-header": "2.0.7",
-        "gulp-htmlhint": "^3.0.1",
-        "gulp-minify-css": "^1.2.4",
-        "gulp-order": "^1.2.0",
+        "gulp-htmlhint": "3.0.1",
+        "gulp-minify-css": "1.2.4",
+        "gulp-order": "1.2.0",
         "gulp-plumber": "1.2.1",
         "gulp-rename": "1.4.0",
         "gulp-sass": "4.0.2",
         "gulp-uglify": "3.0.1",
-        "gulp-uncss": "^1.0.6",
-        "gulp-useref": "^5.0.0",
-        "jshint": "^2.12.0",
+        "gulp-uncss": "1.0.6",
+        "gulp-useref": "5.0.0",
+        "jshint": "2.12.0",
         "merge-stream": "1.0.1",
         "rimraf": "2.7.1"
     }
