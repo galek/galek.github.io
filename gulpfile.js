@@ -20,9 +20,9 @@ const pkg = require('./package.json');
 
 // Set the banner content
 const banner = ['/*!\n',
-    ' * Nick Galko Portfolio - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+    ` * Nick Galko Portfolio - <${pkg.title}> v<${pkg.version}> (${pkg.homepage})\n`,
     ' * Copyright 2009-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-    ' * Licensed under <%= pkg.license %> (https://github.com/galek/portfolio/LICENSE)\n',
+    ` * Licensed under ${pkg.license} (https://github.com/galek/portfolio/LICENSE)\n`,
     ' */\n',
     '\n'
 ].join('');
