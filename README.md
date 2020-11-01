@@ -10,4 +10,3 @@
 6) mb-5 in project list (смотри отступы)
 7) SonarQube
 8) DevOPS section and example
-
