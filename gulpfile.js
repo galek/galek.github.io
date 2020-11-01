@@ -187,6 +187,7 @@ function css(cb) {
         .pipe(uncss({ html: ['./*.html', './*.htm'] }))
         .pipe(cleanCSS())
         .pipe(minifyCSS())
+        .pipe(rename('bundle.min.css'))
         .pipe(gulp.dest("./docs/css"))
         .pipe(browsersync.stream());
 
