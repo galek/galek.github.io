@@ -8,6 +8,7 @@
     "scripts": {
         "start:dev": "gulp watch",
         "build": "gulp",
+        "lint": "",
         "clean": "rimraf docs rimraf package-lock.json rimraf BuildTmp"
     },
     "browserslist": [
