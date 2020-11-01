@@ -1,0 +1,33 @@
+orbs: # declare what orbs we are going to use
+  node: circleci/node@2.0.2 # the node orb provides common node-related configuration 
+
+version: 2.1 # using 2.1 provides access to orbs and other features
+
+jobs:
+  build:
+    working_directory: ~/portfolio
+    docker:
+      - image: circleci/node:10.0.0
+    steps:
+      - checkout
+      - run:
+          name: install-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: clean project
+          command: npm run clean
+      - run:
+          name: install-dependencies
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: lint
+          command: npm run lint
+      - run:
+          name: build
+          command: npm run build
