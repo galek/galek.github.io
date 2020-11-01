@@ -1,5 +1,10 @@
 "use strict";
 
+/*
+Nick: Notes about plugins
+https://habr.com/ru/post/252745/
+*/
+
 // Load plugins
 const autoprefixer = require("gulp-autoprefixer");
 const browsersync = require("browser-sync").create();
@@ -14,6 +19,14 @@ const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
 const minifyCSS = require('gulp-minify-css');
 const htmlmin = require('gulp-htmlmin');
+const useref = require('gulp-useref');
+const uncss = require('gulp-uncss');
+const htmlHint = require("gulp-htmlhint");
+const autoPolyFiller = require('gulp-autopolyfiller');
+const concat = require('gulp-concat');
+const order = require('gulp-order');
+
+const fixmyjs = require("gulp-fixmyjs");
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -53,7 +66,8 @@ function browserSyncReload(cb) {
 // Clean dist
 function clean(cb) {
 
-    del.sync(["./docs/"]);
+    del.sync([`${__dirname}/docs`]);
+    del.sync([`${__dirname}/buildTmp`]);
 
     cb();
 }
@@ -62,20 +76,33 @@ function clean(cb) {
 function modules(cb) {
 
     // Bootstrap
-    const bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
+    const bootstrap = gulp.src(['./node_modules/bootstrap/dist/**/*.min.*', '!./node_modules/bootstrap/dist/**/*.map'])
         .pipe(gulp.dest('./docs/vendor/bootstrap'));
 
     // Font Awesome
-    const fontAwesome = gulp.src('./node_modules/@fortawesome/**/*')
+    const fontAwesome = gulp.src(['./node_modules/@fortawesome/**/*.min.*',
+            './node_modules/@fortawesome/**/*.svg',
+            './node_modules/@fortawesome/**/*.eot',
+            './node_modules/@fortawesome/**/*.eps',
+            './node_modules/@fortawesome/**/*.ttf',
+            './node_modules/@fortawesome/**/*.woff',
+            './node_modules/@fortawesome/**/*.woff2',
+            '!**/*.less',
+            '!**/*.scss',
+            '!**/*.json',
+            '!**/*.map',
+            '!**/*.txt'
+        ])
         .pipe(gulp.dest('./docs/vendor'));
 
     // jQuery Easing
-    const jqueryEasing = gulp.src('./node_modules/jquery.easing/*.js')
+    const jqueryEasing = gulp.src('./node_modules/jquery.easing/*.min.*')
         .pipe(gulp.dest('./docs/vendor/jquery-easing'));
 
     // jQuery
     const jquery = gulp.src([
-            './node_modules/jquery/dist/*',
+            './node_modules/jquery/dist/*.min.*',
+            '!./node_modules/jquery/dist/*.map',
             '!./node_modules/jquery/dist/core.js'
         ])
         .pipe(gulp.dest('./docs/vendor/jquery'));
@@ -89,6 +116,7 @@ function modules(cb) {
             './node_modules/devicon/**/**/*.woff',
             './node_modules/devicon/**/**/*.css',
 
+            '!./node_modules/devicon/devicon.git/**',
             '!./node_modules/devicon/devicon.css',
             '!./node_modules/devicon/devicon-colors.css',
             '!./node_modules/devicon/*.json',
@@ -105,10 +133,10 @@ function modules(cb) {
     cb();
 }
 
+
 function postClean(cb) {
 
-    del.sync(["./docs/vendor/devicon/devicon.git"]);
-    del.sync(["./docs/css/resume.min.css"]);
+    del.sync([`${__dirname}/buildTmp`]);
 
     cb();
 }
@@ -131,6 +159,8 @@ function staticHtml(cb) {
 
     const indexHtml = gulp.src('./index.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(useref())
+        .pipe(htmlHint())
         .pipe(gulp.dest('./docs'));
 
     cb();
@@ -150,10 +180,11 @@ function css(cb) {
         .pipe(header(banner, {
             pkg: pkg
         }))
-        .pipe(gulp.dest("./docs/css"))
+        .pipe(gulp.dest("./buildTmp/css"))
         .pipe(rename({
             suffix: ".min"
         }))
+        .pipe(uncss({ html: ['./*.html', './*.htm'] }))
         .pipe(cleanCSS())
         .pipe(minifyCSS())
         .pipe(gulp.dest("./docs/css"))
@@ -165,11 +196,28 @@ function css(cb) {
 // JS task
 function js(cb) {
 
-    gulp
+    const all = gulp
         .src([
             './js/*.js',
             '!./js/*.min.js',
         ])
+        .pipe(concat(`bundleTmp.js`))
+        .pipe(fixmyjs({
+            // JSHint settings here
+        }))
+        .pipe(gulp.dest(`${__dirname}/buildTmp`));
+
+    // Generate polyfills for all files
+    const polyfills = all
+        .pipe(autoPolyFiller('polyfills.js', { browsers: pkg.browserslist }));
+
+    const result = merge(polyfills, all)
+        // Order files. NB! polyfills MUST be first
+        .pipe(order([
+            'polyfills.js',
+            'bundleTmp.js'
+        ]))
+        .pipe(concat('bundle.js'))
         .pipe(uglify())
         .pipe(header(banner, {
             pkg: pkg
@@ -180,7 +228,7 @@ function js(cb) {
         .pipe(gulp.dest('./docs/js'))
         .pipe(browsersync.stream());
 
-    cb()
+    cb();
 }
 
 function PWAFiles(cb) {
