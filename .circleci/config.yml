@@ -6,8 +6,8 @@ version: 2.1 # using 2.1 provides access to orbs and other features
 jobs:
   build:
     working_directory: ~/portfolio
-#    docker:
-#      - image: circleci/node:15.0.1-stretch
+    docker:
+      - image: circleci/node:15.0.1-stretch
     steps:
       - checkout
       - run:
