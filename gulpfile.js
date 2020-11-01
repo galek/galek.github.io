@@ -13,6 +13,7 @@ const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
 const minifyCSS = require('gulp-minify-css');
+const htmlmin = require('gulp-htmlmin');
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -129,6 +130,7 @@ function images(cb) {
 function staticHtml(cb) {
 
     const indexHtml = gulp.src('./index.html')
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('./docs'));
 
     cb();

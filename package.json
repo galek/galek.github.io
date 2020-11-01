@@ -25,6 +25,7 @@
         "@fortawesome/fontawesome-free": "5.7.2",
         "bootstrap": "4.3.1",
         "devicon": "2.2.0",
+        "gulp-htmlmin": "^5.0.1",
         "jquery": "3.5.1",
         "jquery.easing": "1.4.1"
     },
