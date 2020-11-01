@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/portfolio
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:lts
     steps:
       - checkout
       - run:
