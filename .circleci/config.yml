@@ -14,9 +14,6 @@ jobs:
           name: install-gcc
           command: 'sudo apt install gcc'
       - run:
-          name: fix
-          command: 'sudo rm -rf /usr/local/lib/node_modules/npm'
-      - run:
           name: install-npm
           command: 'sudo npm install -g npm@latest'
       - restore_cache: # special step to restore the dependency cache
