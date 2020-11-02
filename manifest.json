@@ -3,7 +3,7 @@
     "short_name": "Nick Galko CV",
     "description": "Nick Galko CV Site",
     "lang": "en-GB",
-    "start_url": "/portfolio/",
+    "start_url": "/",
     "display": "minimal-ui",
     "theme_color": "#E6E6FA",
     "background_color": "#E6E6FA",
