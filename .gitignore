@@ -9,3 +9,4 @@ vendor/*
 .suo
 BuildTmp
 BuildTmp/*
+.DS_Store
