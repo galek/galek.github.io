@@ -6,7 +6,6 @@ https://habr.com/ru/post/252745/
 */
 
 // Load plugins
-const autoprefixer = require("gulp-autoprefixer");
 const browsersync = require("browser-sync").create();
 const cleanCSS = require("gulp-clean-css");
 const del = require("del");
@@ -15,7 +14,7 @@ const header = require("gulp-header");
 const merge = require("merge-stream");
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
-const sass = require("gulp-sass");
+const sass = require('gulp-sass')(require('sass'));
 const uglify = require("gulp-uglify");
 const minifyCSS = require('gulp-minify-css');
 const htmlmin = require('gulp-htmlmin');
@@ -33,7 +32,7 @@ const pkg = require('./package.json');
 
 // Set the banner content
 const banner = ['/*!\n',
-    ` * Nick Galko Portfolio - <${pkg.title}> v<${pkg.version}> (${pkg.homepage})\n`,
+    ` * Nikolay Galko Portfolio - <${pkg.title}> v<${pkg.version}> (${pkg.homepage})\n`,
     ' * Copyright 2009-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
     ` * Licensed under ${pkg.license} (https://github.com/galek/portfolio/LICENSE)\n`,
     ' */\n',
@@ -41,8 +40,7 @@ const banner = ['/*!\n',
 ].join('');
 
 // BrowserSync
-function browserSync(cb) {
-
+const browserSync = (cb) => {
     if (browsersync)
         browsersync.init({
             server: {
@@ -55,8 +53,7 @@ function browserSync(cb) {
 }
 
 // BrowserSync reload
-function browserSyncReload(cb) {
-
+const browserSyncReload = (cb) => {
     if (browsersync)
         browsersync.reload();
 
@@ -64,8 +61,7 @@ function browserSyncReload(cb) {
 }
 
 // Clean dist
-function clean(cb) {
-
+const clean = (cb) => {
     del.sync([`${__dirname}/docs`]);
     del.sync([`${__dirname}/buildTmp`]);
 
@@ -73,8 +69,7 @@ function clean(cb) {
 }
 
 // Bring third party dependencies from node_modules into docs/vendor directory
-function modules(cb) {
-
+const modules = (cb) => {
     // Bootstrap
     gulp.src(['./node_modules/bootstrap/dist/**/*.min.*', '!./node_modules/bootstrap/dist/**/*.map'])
         .pipe(gulp.dest('./docs/vendor/bootstrap'));
@@ -134,15 +129,13 @@ function modules(cb) {
 }
 
 
-function postClean(cb) {
-
+const postClean = (cb) => {
     del.sync([`${__dirname}/buildTmp`]);
 
     cb();
 }
 
-function images(cb) {
-
+const images = (cb) => {
     gulp.src('./img/**/*')
         .pipe(gulp.dest('./docs/img'));
 
@@ -155,8 +148,7 @@ function images(cb) {
     cb()
 }
 
-function staticHtml(cb) {
-
+const staticHtml = (cb) => {
     gulp.src('./index.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(useref())
@@ -167,8 +159,7 @@ function staticHtml(cb) {
 }
 
 // CSS task
-function css(cb) {
-
+const css = (cb) => {
     gulp
         .src("./scss/**/*.scss")
         .pipe(plumber())
@@ -195,8 +186,7 @@ function css(cb) {
 }
 
 // JS task
-function js(cb) {
-
+const js = (cb) => {
     const all = gulp
         .src([
             './js/*.js',
@@ -232,8 +222,7 @@ function js(cb) {
     cb();
 }
 
-function PWAFiles(cb) {
-
+const PWAFiles = (cb) => {
     gulp
         .src([
             './sw.js',
@@ -254,8 +243,7 @@ function PWAFiles(cb) {
 }
 
 // Watch files
-function watchFiles() {
-
+const watchFiles = () => {
     gulp.watch("./scss/**/*", css);
     gulp.watch("./js/**/*", js);
     gulp.watch("./**/*.html", browserSyncReload);

@@ -1,14 +1,15 @@
 {
-    "title": "Nick Galko CV",
+    "title": "Nikolay Galko CV",
     "name": "galek-cv",
-    "version": "01.11.2020",
+    "version": "12.10.2021",
     "homepage": "galek.ru",
-    "author": "Nick <Galek> Galko",
+    "author": "Nikolay <Galek> Galko",
     "license": "MIT",
     "scripts": {
         "start:dev": "gulp watch",
         "build": "npm run clean && gulp",
-        "lint": "",
+        "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx js",
+        "lint:fix": "eslint --cache --ext .js,.jsx,.ts,.tsx js --fix",
         "clean": "rimraf docs rimraf package-lock.json rimraf BuildTmp"
     },
     "browserslist": [
@@ -24,9 +25,8 @@
         "last 2 versions",
         "bb >= 10"
     ],
-    "browserslist2": [
-    ],
-    "description": "Nick Galko CV",
+    "browserslist2": [],
+    "description": "Nikolay Galko CV",
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.7.2",
         "bootstrap": "^4.3.1",
@@ -35,8 +35,12 @@
         "jquery.easing": "^1.4.1"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
         "browser-sync": "^2.26.14",
         "del": "^3.0.0",
+        "eslint": "^8.0.1",
+        "eslint-config-google": "^0.14.0",
         "gulp": "^4.0.2",
         "gulp-autopolyfiller": "^1.2.1",
         "gulp-autoprefixer": "^6.1.0",
@@ -44,18 +48,19 @@
         "gulp-concat": "^2.6.1",
         "gulp-fixmyjs": "^1.0.2",
         "gulp-header": "^2.0.9",
-        "gulp-htmlhint": "^3.0.1",
+        "gulp-htmlhint": "^1.0.0",
         "gulp-htmlmin": "^5.0.1",
         "gulp-minify-css": "^1.2.4",
         "gulp-order": "^1.2.0",
         "gulp-plumber": "^1.2.1",
         "gulp-rename": "^1.4.0",
-        "gulp-sass": "^4.1.0",
+        "gulp-sass": "^5.0.0",
         "gulp-uglify": "^3.0.2",
         "gulp-uncss": "^1.0.6",
-        "gulp-useref": "^5.0.0",
+        "gulp-useref": "^3.1.3",
         "jshint": "^2.12.0",
         "merge-stream": "^1.0.1",
-        "rimraf": "^2.7.1"
+        "rimraf": "^2.7.1",
+        "sass": "^1.43.2"
     }
 }
