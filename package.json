@@ -25,6 +25,7 @@
         "last 2 versions",
         "bb >= 10"
     ],
+    "browserslist2":[],
     "description": "Nikolay Galko CV",
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.7.2",
