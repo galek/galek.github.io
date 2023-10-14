@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1697251243708,
+  "timestamp": 1697257118628,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,9 +13,9 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.87c0b060bac5367d.js",
+        "/main.19f4589b9ae680f5.js",
         "/manifest.webmanifest",
-        "/polyfills.870649121de4d169.js",
+        "/polyfills.d44996a409dd6878.js",
         "/runtime.9625e419e4491d0a.js",
         "/styles.cd57c65ed18ab39e.css"
       ],
@@ -220,10 +220,10 @@
     "/assets/img/profile.webp": "77ae58ef73826de0a2a35c596ba78106d28b6667",
     "/assets/scully-routes.json": "6e3a681c9e7e0c6a79729de36e4310006bd43fd3",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "5466b8349c1ea77b7196e65c7facb0fbd672d835",
-    "/main.87c0b060bac5367d.js": "90f8eeee24a69c931caa57e321bd30f16f0028b5",
+    "/index.html": "8d8fe57e23da4af6b0b495f413b543c321c9b2a7",
+    "/main.19f4589b9ae680f5.js": "1e608c3e7b9a80cfaf85499665c4140d8c8b3a14",
     "/manifest.webmanifest": "99c071952e94edf42cdcb29847ce38bdb08f3f28",
-    "/polyfills.870649121de4d169.js": "bced916b2bedb0cd53fccfb9b10992e5b2f45b25",
+    "/polyfills.d44996a409dd6878.js": "5461d503b6713070be81e477eaed90d837a30c6a",
     "/runtime.9625e419e4491d0a.js": "917a7f10874bea215d10da734df0162a31c03b3d",
     "/styles.cd57c65ed18ab39e.css": "e86c755b1a57594ca7d808fb363de6ac705a9f2f",
     "/suisseIntl-Black.10b591b2b2b58bc9.otf": "4c05612920eba2b8885c14983af6a96a4314290c",
